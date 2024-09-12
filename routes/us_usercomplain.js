@@ -4,7 +4,7 @@ const router = express.Router();
 const {handleUserComplains} = require("../controllers/us_usercomplain")
 
 router.get('/', (req, res) => {
-    res.send({ status: "Server is running" });
+    res.send({ status: "User Complain is running" });
 });
 
 router.post('/usercomplain',handleUserComplains);
