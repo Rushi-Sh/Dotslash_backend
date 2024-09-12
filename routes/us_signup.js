@@ -5,7 +5,7 @@ const router = express.Router()
 const { handleUserFind, handleUserPhone, handleUserRegister } = require("../controllers/us_signup")
 
 router.get('/', (req, res) => {
-    res.send({ status: "Started" });
+    res.send({ status: "Signup Started" });
 });
 
 router.post('/verify/email',handleUserFind);
