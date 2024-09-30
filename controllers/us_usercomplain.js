@@ -22,6 +22,9 @@ async function handleUserComplains(){
 
         await newComplain.save();
         res.status(201).json({ status: "ok", data: "Complaint Posted" });
+
+        
+
     } catch (error) {
         console.error("Error posting complaint:", error);
         res.status(500).json({ error: "Server error" });
