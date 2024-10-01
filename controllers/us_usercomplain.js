@@ -1,6 +1,6 @@
 const Complain = require("../models/UserPost")
 
-async function handleUserComplains(){
+async function handleUserComplains(req, res) {
     const { Url, userid, username, reportType, loc, date, time, desc } = req.body;
 
     console.log("Received complain data:", {
@@ -8,7 +8,6 @@ async function handleUserComplains(){
     });
 
     try {
-        
         const newComplain = new Complain({
             username: username,
             image: Url,
@@ -20,10 +19,8 @@ async function handleUserComplains(){
             uid: userid
         });
 
-        await newComplain.save();
-        res.status(201).json({ status: "ok", data: "Complaint Posted" });
-
-        
+        const savedComplain = await newComplain.save();
+        res.status(201).json({ status: "ok", data: "Complaint Posted", complainId: savedComplain._id });
 
     } catch (error) {
         console.error("Error posting complaint:", error);
