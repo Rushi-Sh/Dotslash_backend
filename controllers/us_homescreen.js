@@ -1,4 +1,5 @@
 const Complain = require("../models/UserPost")
+const PredictedComplain = require("../models/PredictedDetails")
 
 async function handleAllPost(req,res){
     try {
@@ -59,8 +60,27 @@ async function handleDate(req,res){
     }
 }
 
+async function handlePredictedData(req,res){
+
+    try {
+
+        const predictedData = await PredictedComplain.find();
+        console.log(predictedData)
+
+        if (!predictedData) {
+            return res.status(400).json({ error: "Data does not exists!" });
+        }
+
+        res.status(201).json({ status: "ok", data: predictedData});
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Server error" });
+    }
+}
+
 module.exports = {
     handleAllPost,
     handleComplainType,
-    handleDate
+    handleDate,
+    handlePredictedData
 }
