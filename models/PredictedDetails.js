@@ -33,10 +33,42 @@ const PredictedPostSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    complain_id:{
+        type: String,
+        required: true,
+    },
+    predicted_image_url:{
+        type: String,
+        required: true,
+    },
+    model_output:{
+        type: [mongoose.Schema.Types.Mixed], 
+        default: [],
+    },
+    status:{
+        type: mongoose.Schema.Types.Mixed, 
+        default: null,
+    },
+    TAT:{
+        type: mongoose.Schema.Types.Mixed, 
+        default: null,
+    },
+    pothole_detected:{
+        type: Number,
+        default: 0,
+    },
+    avg_confidence_level:{
+        type: Number, 
+        default: 0,
+    },
+    output_label:{
+        type: [mongoose.Schema.Types.Mixed], 
+        default: [],
+    }
 }, {
     collection: "UserComplainPredictionData"
 });
 
 const UserPredictedComplain = mongoose.model("UserComplainPredictionData", PredictedPostSchema);
 
-module.exports = UserPredictedComplain
+module.exports = UserPredictedComplain;
