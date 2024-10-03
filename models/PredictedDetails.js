@@ -53,6 +53,10 @@ const PredictedPostSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.Mixed, 
         default: null,
     },
+    completion_time:{
+        type: String, 
+        default: null,
+    },
     pothole_detected:{
         type: Number,
         default: 0,
