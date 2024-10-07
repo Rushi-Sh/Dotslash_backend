@@ -1,4 +1,5 @@
 const Complain = require("../models/UserPost")
+const PredictedDetails = require("../models/PredictedDetails")
 
 async function handlePersonalPost (req,res){
     const { userName, userID } = req.body;
@@ -8,7 +9,7 @@ async function handlePersonalPost (req,res){
             return res.status(400).json({ error: "User Credentials not provided!" });
         }
 
-        const existingUser = await Complain.find({
+        const existingUser = await PredictedDetails.find({
             username: userName,
             uid: userID
         });
