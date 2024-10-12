@@ -1,4 +1,4 @@
-const News = require("../models/News")
+const NewsPost = require("../models/News")
 
 async function handleNewsUpload(req, res) {
     const { 
@@ -21,7 +21,7 @@ async function handleNewsUpload(req, res) {
     });
 
     try {
-        const newNews = new News({
+        const newNews = new NewsPost({
             title: title,
             image: imgUrl,
             newsType: newsType,
@@ -31,7 +31,7 @@ async function handleNewsUpload(req, res) {
             complainType: complainType
         });
 
-        const savedNews = await newNews.save();
+        await newNews.save();
         res.status(201).json({ status: "ok", data: "News Posted"});
 
     } catch (error) {
