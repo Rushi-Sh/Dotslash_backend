@@ -28,7 +28,8 @@ async function handleNewsUpload(req, res) {
             description: desc,
             date: date,
             time: time,
-            complainType: complainType
+            complainType: complainType,
+            empId:"Admin"
         });
 
         await newNews.save();
