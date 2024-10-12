@@ -19,7 +19,8 @@ const NewsSchema = new mongoose.Schema({
     },
     empId: {
         type: String,
-        required: true
+        required: true,
+        default:null
     },
     date: {
         type: String,

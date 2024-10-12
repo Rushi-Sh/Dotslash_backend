@@ -19,7 +19,8 @@ async function handlePersonalPost (req,res){
         }
         else{
             const userdata = await PredictedDetails.find({
-                uid: userID
+                username: userName,
+                uid: String(userID)
             })
             return res.status(200).json({ status: "ok", data: userdata });
         }
