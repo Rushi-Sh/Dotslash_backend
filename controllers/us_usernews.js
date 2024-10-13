@@ -45,14 +45,14 @@ async function handleNewsPost(req,res){
 
     try {
 
-        const NewsPost = await News.find();
-        console.log(NewsPost)
+        const News = await NewsPost.find();
+        console.log(News)
 
-        if (!NewsPost) {
+        if (!News) {
             return res.status(400).json({ error: "Data does not exists!" });
         }
 
-        res.status(201).json({ status: "ok", data: NewsPost});
+        res.status(201).json({ status: "ok", data: News});
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: "Server error" });
