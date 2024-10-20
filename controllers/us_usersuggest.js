@@ -15,7 +15,7 @@ async function handleUserSuggestion(req, res) {
             userId:userID
         });
 
-        const savedSuggestion = await newSuggestion.save();
+        await newSuggestion.save();
         res.status(201).json({ status: "ok", data: "Suggestion Noted"});
 
     } catch (error) {
