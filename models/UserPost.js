@@ -33,6 +33,15 @@ const UserPostSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    tat: {
+        type: String,
+        default: "Not Assigned"
+    },
+    status: {
+        type: String,
+        enum: ["Pending", "In Progress", "Resolved", "Rejected"],
+        default: "Pending"
+    }
 }, {
     collection: "UserComplainData"
 });
